@@ -75,7 +75,7 @@ app.route("/articles/:articleTitle")
 .put((req,res) =>{
   Article.update({title:req.params.articleTitle}
      ,{title:req.body.title , content:req.body.content},
-     {override:true},
+     {override:true}, //ovverride is False by default
    (err)=>{
     if(err)
     console.log(err);
