@@ -1,23 +1,13 @@
 const express = require("express");
-const mongoose =require("mongoose");
 const bodyParser = require("body-parser");
-
+const Article = require('./models/models.js');
+require("./db/conn.js");
 const app =express();
 
 app.use(bodyParser.urlencoded({extended:true}));
 
-mongoose.connect("mongodb://localhost:27017/wikiDB"); //making connection to DB
 
 
-const articleSchema = new mongoose.Schema({
-  title:{
-    type:String,
-    required:true
-  },
-  content:String
-});
-
-const Article = mongoose.model("Fighter",articleSchema);
 
 ////////////////////////////////Routes to all articles///////////////////////////////
 app.route("/articles")
